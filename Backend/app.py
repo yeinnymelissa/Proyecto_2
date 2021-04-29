@@ -25,6 +25,11 @@ def agregar_usuario():
 def obtener_usuario():
     return jsonify({"mensaje": "OK", "data": usuarios.obtener_general()})
 
+
+@app.route('/')
+def index():
+    return 'Funciona!'
+
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
 
