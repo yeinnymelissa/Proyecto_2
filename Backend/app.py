@@ -26,7 +26,7 @@ def obtener_usuario():
     return jsonify({"mensaje": "OK", "data": usuarios.obtener_general()})
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return 'Funciona!'
 
