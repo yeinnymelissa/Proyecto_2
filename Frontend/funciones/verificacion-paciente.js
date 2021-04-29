@@ -1,4 +1,4 @@
-const ruta = ""
+const ruta = "localhost:4000/usuario";
 
 function registrarPaciente(event){
     event.preventDefault();
@@ -28,4 +28,16 @@ function registrarPaciente(event){
         telefono: obtener_telefono
       };
 
+    fetch(ruta, {
+        method: "PUT",
+        body: JSON.stringify(paciente),
+        headers: {
+        "Content-Type": "application/json",
+        },
+    })
+    .then((res) => res.json())
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch((error) => console.log(error));
 }
