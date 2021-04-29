@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from usuario import Usuario
 from CRUD_Usuario import CRUD_Usuario
@@ -28,7 +28,7 @@ def obtener_usuario():
 
 @app.route('/')
 def index():
-    return 'holaaaa'
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
