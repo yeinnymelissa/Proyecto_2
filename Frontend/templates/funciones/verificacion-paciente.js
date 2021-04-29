@@ -28,7 +28,7 @@ function registrarPaciente(event){
         telefono: obtener_telefono
       };
 
-    /*fetch(ruta, {
+    fetch(ruta, {
         method: "PUT",
         body: JSON.stringify(paciente),
         headers: {
@@ -39,5 +39,5 @@ function registrarPaciente(event){
     .then(function (response) {
         console.log(response);
     })
-    .catch((error) => console.log(error));*/
+    .catch((error) => console.log(error));
 }
