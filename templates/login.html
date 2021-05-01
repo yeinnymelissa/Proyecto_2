@@ -13,10 +13,10 @@
     <link rel="shortcut icon" href="favicon.ico"> 
     
     <!-- FontAwesome JS-->
-    <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src="{{ url_for('static', filename='assets/plugins/fontawesome/js/all.min.js')}}"></script>
     
     <!-- App CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename='assets/css/portal.css')}}">
 
 </head> 
 
@@ -25,12 +25,12 @@
 	    <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
 		    <div class="d-flex flex-column align-content-end">
 			    <div class="app-auth-body mx-auto">	
-				    <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="assets/images/uhospitali.png" alt="logo"></a></div>
+				    <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="{{ url_for('static', filename='assets/images/uhospitali.png')}}" alt="logo"></a></div>
 					<h2 class="auth-heading text-center mb-5">Inicio de Sesión</h2>
 			        <div class="auth-form-container text-left">
 						<form class="auth-form login-form">         
 							<div class="email mb-3">
-								<label class="sr-only" for="signin-nombreu">Email</label>
+								<label class="sr-only" for="signin-nombreu">Nombre de usuario</label>
 								<input id="signin-nombreu" name="signin-nombreu" type="text" class="form-control signin-nombreu" placeholder="Ingrese su nombre de usuario" required="required">
 							</div><!--//form-group-->
 							<div class="password mb-3">
@@ -42,7 +42,7 @@
 							</div>
 						</form>
 						
-						<div class="auth-option text-center pt-5">¿No tiene una cuenta? Registrese <a class="text-link" href="signup.html" >aquí</a>.</div>
+						<div class="auth-option text-center pt-5">¿No tiene una cuenta? Registrese <a class="text-link" href="{{ url_for('signup')}}" >aquí</a>.</div>
 					</div><!--//auth-form-container-->	
 
 			    </div><!--//auth-body-->

@@ -30,6 +30,18 @@ def obtener_usuario():
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/modulo-admin')
+def moduloadmin():
+    return render_template('modulo-admin.html')
+
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
 
