@@ -42,6 +42,22 @@ def signup():
 def moduloadmin():
     return render_template('modulo-admin.html')
 
+@app.route('/pacientes')
+def pacientes():
+    return render_template('pacientes.html')
+
+@app.route('/enfermeros')
+def enfermeros():
+    return render_template('enfermeros.html')
+
+@app.route('/medicos')
+def medicos():
+    return render_template('medicos.html')
+
+@app.route('/medicamentos')
+def medicamentos():
+    return render_template('medicamentos.html')
+
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
 
