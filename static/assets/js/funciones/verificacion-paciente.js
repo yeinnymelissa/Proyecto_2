@@ -1,4 +1,4 @@
-const ruta = "http://127.0.0.1:4000//usuario";
+const ruta = "https://yproyecto2.herokuapp.com/usuario";
 
 function registrarPaciente(event){
     event.preventDefault();
