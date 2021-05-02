@@ -1,4 +1,4 @@
-const ruta = "https://localhost:4000/usuario";
+const ruta = "http://127.0.0.1:4000/usuario";
 
 function registrarPaciente(event){
     event.preventDefault();
@@ -12,13 +12,13 @@ function registrarPaciente(event){
 
 
     let paciente = {
-      nombre: obtener_nombre,
-      apellido: obtener_apellido,
-      fecha_nacimiento: obtener_fnac,
-      sexo: obtener_sexo,
-      nombreusuario: obtener_nombreu,
-      contraseña: obtener_contraseña,
-      telefono: obtener_telefono,
+      nombre = obtener_nombre,
+      apellido = obtener_apellido,
+      fecha_nac = obtener_fnac,
+      sexo = obtener_sexo,
+      nom_usuario = obtener_nombreu,
+      contraseña =  obtener_contraseña,
+      telefono = obtener_telefono,
     };
 
   fetch(ruta, {
