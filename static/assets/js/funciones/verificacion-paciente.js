@@ -1,4 +1,4 @@
-const ruta = "localhost:4000/usuario";
+const ruta = "https://localhost:4000/usuario";
 
 function registrarPaciente(event){
     event.preventDefault();
