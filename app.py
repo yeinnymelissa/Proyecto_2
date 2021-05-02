@@ -7,13 +7,14 @@ usuarios = CRUD_Usuario()
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route('/usuario', methods=['PUT'])
 def agregar_usuario():
     nombre = request.json['nombre']
     apellido = request.json['apellido']
-    fecha_nac = request.json['fecha de nacimiento']
+    fecha_nac = request.json['fecha_nac']
     sexo = request.json['sexo']
-    nom_usuario = request.json['usuario']
+    nom_usuario = request.json['nom_usuario']
     contraseña =  request.json['contraseña']
     telefono = request.json['telefono']
 

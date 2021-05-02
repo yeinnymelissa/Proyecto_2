@@ -1,4 +1,4 @@
-const ruta = "http://127.0.0.1:4000/usuario";
+const ruta = "http://localhost:4000/usuario";
 
 function registrarPaciente(event){
     event.preventDefault();
@@ -12,13 +12,13 @@ function registrarPaciente(event){
 
 
     let paciente = {
-      nombre = obtener_nombre,
-      apellido = obtener_apellido,
-      fecha_nac = obtener_fnac,
-      sexo = obtener_sexo,
-      nom_usuario = obtener_nombreu,
-      contraseña =  obtener_contraseña,
-      telefono = obtener_telefono,
+      nombre: obtener_nombre,
+      apellido: obtener_apellido,
+      fecha_nac: obtener_fnac,
+      sexo: obtener_sexo,
+      nom_usuario: obtener_nombreu,
+      contraseña: obtener_contraseña,
+      telefono: obtener_telefono,
     };
 
   fetch(ruta, {
@@ -30,29 +30,7 @@ function registrarPaciente(event){
   })
     .then((res) => res.json())
     .then(function (response) {
-      if (response.mensaje == "OK") {
-        localStorage.setItem("paciente", JSON.stringify(paciente));
-        //alert("Usuario creado correctamente");
-        Swal.fire({
-          title: "Registro",
-          text: `Paciente creado correctamente`,
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-        window.location.href = "index.html";
-      }else{
-        Swal.fire({
-          title: "Registro",
-          text: `No se pudo registrar al paciente`,
-          icon: "warning",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-      }
-
-      // Recuperar usuario del local storage
-      // let usuario = JSON.parse(localStorage.getItem("usuario"))
+      console.log(response);
     })
     .catch((error) => console.log(error));
 }    
