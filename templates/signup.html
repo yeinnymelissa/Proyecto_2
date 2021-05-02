@@ -10,7 +10,7 @@
     
     <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico')}}"> 
+    <link rel="shortcut icon" href="favicon.ico"> 
     
     <!-- FontAwesome JS-->
     <script defer src="{{ url_for('static', filename='assets/plugins/fontawesome/js/all.min.js')}}"></script>
@@ -49,7 +49,7 @@
 									<option>M</option>
 								</select>
 								<!--<input id="signup-sexo" name="signup-sexo" type="" class="form-control signup-sexo" placeholder="Genero" required="required">-->
-							</div>	
+							</div>
 							<div class="nombreu mb-3">
 								<label class="sr-only" for="signup-nombreu">Su nombre de usuario</label>
 								<input id="signup-nombreu" name="signup-nombreu" type="text" class="form-control signup-nombreu" placeholder="Nombre de usuario" required="required">
@@ -60,11 +60,11 @@
 							</div>
 							<div class="telefono mb-3">
 								<label class="sr-only" for="signup-telefono">Su nombre</label>
-								<input id="signup-telefono" name="signup-telefono" type="number" class="form-control signup-telefono" placeholder="Numero de telefono">
+								<input id="signup-telefono" name="signup-telefono" type="tel" class="form-control signup-telefono" placeholder="Numero de telefono">
 							</div>
 							
 							<div class="text-center">
-								<button class="btn app-btn-primary btn-block theme-btn mx-auto" onclick="registrarPaciente(event)">Registrarse</button>
+								<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Registrarse</button>
 							</div>
 						</form><!--//auth-form-->
 						
@@ -97,8 +97,6 @@
     
     </div><!--//row-->
 
-
-		<script src="{{ url_for('static', filename='assets/js/funciones/verificacion-paciente.js')}}"></script>
 
 </body>
 </html> 
