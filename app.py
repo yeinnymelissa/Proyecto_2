@@ -58,6 +58,10 @@ def medicos():
 def medicamentos():
     return render_template('medicamentos.html')
 
+@app.route('/cuenta')
+def cuenta():
+    return render_template('account.html')
+
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
 
