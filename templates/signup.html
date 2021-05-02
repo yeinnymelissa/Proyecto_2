@@ -64,7 +64,7 @@
 							</div>
 							
 							<div class="text-center">
-								<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Registrarse</button>
+								<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto" onclick="registrarPaciente(event)">Registrarse</button>
 							</div>
 						</form><!--//auth-form-->
 						
@@ -97,6 +97,7 @@
     
     </div><!--//row-->
 
+	<script src="{{ url_for('static', filename='assets/js/funciones/verificacion-paciente.js')}}"></script> 
 
 </body>
 </html> 
