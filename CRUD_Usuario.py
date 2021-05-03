@@ -6,7 +6,7 @@ class CRUD_Usuario:
         self.usuarios.append(Usuario('0', 'Ariel', 'Bautista', "", "M", "admin", "1234", "", "0"))
 
     def agregar(self, nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono, puesto):
-        id = len(self.usuarios)+1
+        id = len(self.usuarios)
         self.usuarios.append(Usuario(id, nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono, puesto))
         return id
 
