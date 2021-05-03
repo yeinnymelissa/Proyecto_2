@@ -7,7 +7,7 @@ usuarios = CRUD_Usuario()
 app = Flask(__name__)
 CORS(app)
 
-#todo bien hasta este punto
+
 
 @app.route('/usuario', methods=['PUT'])
 def agregar_usuario():
