@@ -21,7 +21,7 @@ function registrarPaciente(event){
       nom_usuario: obtener_nombreu,
       contraseña: obtener_contraseña,
       telefono: obtener_telefono,
-      puesto: 4,
+      puesto: 3,
     };
 
     console.log(largo_contraseña.lenght); 
@@ -81,19 +81,30 @@ function logIn() {
   .then(res => res.json())
   .then(response => {
 
-    if (recibi_nombreu.value == "admin" && recibi_contraseña.value == "1234"){
-      window.location.href = '/modulo-admin';
-    } else if(response.mensaje != "OK" || recibi_nombreu == "" || recibi_contraseña == ""){
+    if(response.mensaje != "OK" || recibi_nombreu == "" || recibi_contraseña == ""){
       alert('Usuario o contraseña incorrectos')
       return;
-    } else{
-      alert("Bienvenido");
+    } else if (response.usuario.puesto == 0){
+      alert("Bienvenido administrador");
 
       localStorage.setItem("usuario", JSON.stringify(response.usuario));
-      window.location.href = '/';
+      window.location.href = '/modulo-admin';
+    } else if (response.usuario.puesto == 1){
+      alert("Bienvenido enfermero");
+
+      localStorage.setItem("usuario", JSON.stringify(response.usuario));
+      window.location.href = '/modulo-enfermeros';
+    } else if (response.usuario.puesto == 2){
+      alert("Bienvenido medico");
+
+      localStorage.setItem("usuario", JSON.stringify(response.usuario));
+      window.location.href = '/modulo-medicos';
+    } else if (response.usuario.puesto == 3){
+      alert("Bienvenido paciente");
+
+      localStorage.setItem("usuario", JSON.stringify(response.usuario));
+      window.location.href = '/modulo-pac';
     } 
-
-
   })
 }
 
