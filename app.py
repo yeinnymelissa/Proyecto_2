@@ -18,8 +18,9 @@ def agregar_usuario():
     nom_usuario = request.json['nom_usuario']
     contraseña =  request.json['contraseña']
     telefono = request.json['telefono']
+    puesto = request.json['puesto']
 
-    id = usuarios.agregar(nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono)
+    id = usuarios.agregar(nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono, puesto)
     return jsonify({"mensaje": "OK", 
     "paciente": {
       "nombre": nombre,
@@ -28,7 +29,8 @@ def agregar_usuario():
       "sexo": sexo,
       "nom_usuario": nom_usuario,
       "contraseña": contraseña,
-      "telefono": telefono
+      "telefono": telefono,
+      "puesto": puesto,
     }
     }), 200
 
@@ -71,7 +73,7 @@ def moduloadmin():
 @app.route('/modulo-admin/pacientes')
 def pacientes():
     return render_template('pacientes.html')
-#
+
 @app.route('/modulo-admin/enfermeros')
 def enfermeros():
     return render_template('enfermeros.html')

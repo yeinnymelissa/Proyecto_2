@@ -86,12 +86,14 @@ function logIn() {
     } else if(response.mensaje != "OK" || recibi_nombreu == "" || recibi_contraseña == ""){
       alert('Usuario o contraseña incorrectos')
       return;
-    }  
+    } else{
+      alert("Bienvenido");
 
-    alert("Bienvenido");
+      localStorage.setItem("usuario", JSON.stringify(response.usuario));
+      window.location.href = '/';
+    } 
 
-    localStorage.setItem("usuario", JSON.stringify(response.usuario));
-    window.location.href = '/';
+
   })
 }
 

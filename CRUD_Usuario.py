@@ -3,9 +3,10 @@ from usuario import Usuario
 class CRUD_Usuario:
     def __init__(self):
         self.usuarios = []
+        self.usuarios.append(Usuario('0', 'Ariel', 'Bautista', "", "M", "admin", "1234", "", "0"))
 
-    def agregar(self, nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono):
-        id = len(self.usuarios)
+    def agregar(self, nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono, puesto):
+        id = len(self.usuarios)+1
         self.usuarios.append(Usuario(id, nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono, puesto))
         return id
 
