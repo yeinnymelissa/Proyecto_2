@@ -1,4 +1,5 @@
 const ruta = "http://localhost:4000/usuario";
+const rutalogin = "http://localhost:4000/usuario/login";
 
 function registrarPaciente(event){
     event.preventDefault();
@@ -12,7 +13,7 @@ function registrarPaciente(event){
     let obtener_telefono = document.getElementById('signup-telefono').value;
 
 
-    let paciente = {
+    let usuario = {
       nombre: obtener_nombre,
       apellido: obtener_apellido,
       fecha_nac: obtener_fnac,
@@ -20,13 +21,14 @@ function registrarPaciente(event){
       nom_usuario: obtener_nombreu,
       contraseña: obtener_contraseña,
       telefono: obtener_telefono,
+      puesto: 4,
     };
 
     console.log(largo_contraseña.lenght); 
 
   fetch(ruta, {
     method: "PUT",
-    body: JSON.stringify(paciente),
+    body: JSON.stringify(usuario),
     headers: {
       "Content-Type": "application/json",
     },
@@ -34,7 +36,7 @@ function registrarPaciente(event){
     .then((res) => res.json())
     .then(function (response) {
       if (response.mensaje == "OK" && obtener_nombre != '' && obtener_apellido != '' && obtener_fnac != '' && obtener_sexo != '' && obtener_nombreu != '' && obtener_contraseña != '') {
-        localStorage.setItem("paciente", JSON.stringify(paciente));
+        localStorage.setItem("usuario", JSON.stringify(usuario));
         
         alert("Paciente creado correctamente");
         window.location.href = "/login";
@@ -58,6 +60,40 @@ function registrarPaciente(event){
     .catch((error) => console.log(error));
   }
 
+function logIn() {
+  const recibi_nombreu = document.getElementById("signin-nombreu");
+  const recibi_contraseña = document.getElementById("signin-password");
+
+  let login = {
+    nom_usuario: recibi_nombreu.value,
+    contraseña: recibi_contraseña.value,
+  };
+
+  console.log(login)
+
+  fetch(rutalogin, {
+    method: "POST",
+    body: JSON.stringify(login),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then(res => res.json())
+  .then(response => {
+
+    if (recibi_nombreu.value == "admin" && recibi_contraseña.value == "1234"){
+      window.location.href = '/modulo-admin';
+    } else if(response.mensaje != "OK" || recibi_nombreu == "" || recibi_contraseña == ""){
+      alert('Usuario o contraseña incorrectos')
+      return;
+    }  
+
+    alert("Bienvenido");
+
+    localStorage.setItem("usuario", JSON.stringify(response.usuario));
+    window.location.href = '/';
+  })
+}
 
 
 

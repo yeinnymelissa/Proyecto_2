@@ -19,8 +19,32 @@ def agregar_usuario():
     contraseña =  request.json['contraseña']
     telefono = request.json['telefono']
 
-    usuarios.agregar(nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono)
-    return jsonify({"mensaje": "OK", "Usuario": usuarios.obtener_general()})
+    id = usuarios.agregar(nombre, apellido, fecha_nac, sexo, nom_usuario, contraseña, telefono)
+    return jsonify({"mensaje": "OK", 
+    "paciente": {
+      "nombre": nombre,
+      "apellido": apellido,
+      "fecha_nac": fecha_nac,
+      "sexo": sexo,
+      "nom_usuario": nom_usuario,
+      "contraseña": contraseña,
+      "telefono": telefono
+    }
+    }), 200
+
+
+@app.route('/usuario/login', methods=['POST'])
+def logIn():
+    nom_usuario = request.json["nom_usuario"]
+    contraseña = request.json["contraseña"]
+    
+    usuario = usuarios.login(nom_usuario, contraseña)
+
+    if usuario:
+        return jsonify({ "mensaje": "OK", "usuario": usuario}), 200
+    else:
+        return jsonify({ "mensaje": "Usuario o contraseña incorrectas"}), 404
+
 
 
 @app.route('/usuario', methods=['GET'])
@@ -44,21 +68,29 @@ def signup():
 def moduloadmin():
     return render_template('modulo-admin.html')
 
-@app.route('/pacientes')
+@app.route('/modulo-admin/pacientes')
 def pacientes():
     return render_template('pacientes.html')
-
-@app.route('/enfermeros')
+#
+@app.route('/modulo-admin/enfermeros')
 def enfermeros():
     return render_template('enfermeros.html')
 
-@app.route('/medicos')
+@app.route('/modulo-admin/medicos')
 def medicos():
     return render_template('medicos.html')
 
-@app.route('/medicamentos')
+@app.route('/modulo-admin/medicamentos')
 def medicamentos():
     return render_template('medicamentos.html')
+
+@app.route('/modulo-pac')
+def modulopac():
+    return render_template('modulo-pacientes.html')
+
+@app.route('/solicitarcita')
+def solicitarcita():
+    return render_template('solicitar-cita.html')
 
 @app.route('/cuenta')
 def cuenta():

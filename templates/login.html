@@ -10,7 +10,7 @@
     
     <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico')}}"> 
     
     <!-- FontAwesome JS-->
     <script defer src="{{ url_for('static', filename='assets/plugins/fontawesome/js/all.min.js')}}"></script>
@@ -38,7 +38,7 @@
 								<input id="signin-password" name="signin-password" type="password" class="form-control signin-password" placeholder="Ingrese su contraseña" required="required">
 							</div><!--//form-group-->
 							<div class="text-center">
-								<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Iniciar Sesión</button>
+								<button type="button" class="btn app-btn-primary btn-block theme-btn mx-auto" onclick="logIn()">Iniciar Sesión</button>
 							</div>
 						</form>
 						
@@ -68,6 +68,7 @@
     
     </div><!--//row-->
 
+	<script src="{{ url_for('static', filename='assets/js/funciones/verificacion-paciente.js')}}"></script> 
 
 </body>
 </html> 
