@@ -117,6 +117,18 @@ def moduloenfermeros():
 def modulomedicos():
     return render_template('modulo-medicos.html')
 
+
+@app.route('/usuario/carga-masiva', methods=['POST'])
+def cargaMasiva():
+    usuariosCM = request.json["usuarios"]
+    print (usuariosCM)
+    res = usuarios.cargaMasiva(usuariosCM)
+
+    if res == "OK":
+        return jsonify({ "mensaje": "OK", "data": usuarios.obtener_general()}), 200
+    else:
+        return jsonify({ "mensaje": "Hubo un error al realizar la carga masiva"}), 404
+
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
 

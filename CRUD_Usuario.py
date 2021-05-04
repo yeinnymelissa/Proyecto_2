@@ -24,5 +24,10 @@ class CRUD_Usuario:
         
         return None
 
+    def cargaMasiva(self, usuarios_cm):
+        for usuario in usuarios_cm:
+            self.agregar(usuario['nombre'], usuario['apellido'], usuario['fecha_nac'], usuario['sexo'], usuario['nom_usuario'], usuario['contraseña'], usuario['telefono'], usuario['puesto'])
+        return "OK"   
+
     def obtener_general(self):
         return [usuario.dump() for usuario in self.usuarios]

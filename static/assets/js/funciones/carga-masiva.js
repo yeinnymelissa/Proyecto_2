@@ -1,13 +1,14 @@
+const ruta = "http://localhost:4000/usuario/carga-masiva";
 function cargaMasiva(puesto){
     let documento = document.getElementById('csv-enfermero').files[0];
-      console.log(archivo);
+      console.log(documento);
 
     const reader = new FileReader();
     reader.addEventListener("load", (event) => {
         procesarDocumento(event.target.result, puesto);
     });
 
-    reader.readAsText(archivo, "UTF-8");
+    reader.readAsText(documento, "UTF-8");
 }
 
 function procesarDocumento(texto, puesto) {
@@ -28,10 +29,11 @@ function procesarDocumento(texto, puesto) {
           Nombre: ${usuario_auxiliar[4]}
           Contraseña: ${usuario_auxiliar[5]}
           Telefono: ${usuario_auxiliar[6]}
+          Puesto: ${puesto}
           -------------------------------------
           `;
   
-    /*    let usuario = {
+        let usuario = {
             nombre: usuario_auxiliar[0],
             apellido: usuario_auxiliar[1],
             fecha_nac: usuario_auxiliar[2],
@@ -52,7 +54,7 @@ function procesarDocumento(texto, puesto) {
       usuarios: usuarios_array,
     };
   
-    fetch(`${ruta}/carga-masiva`, {
+    fetch(ruta, {
       method: "POST",
       body: JSON.stringify(usuariosCM),
       headers: {
@@ -63,25 +65,10 @@ function procesarDocumento(texto, puesto) {
       .then((response) => {
         if (response.mensaje != "OK") {
           console.error(response.mensaje);
-          //alert("Error al realizar la carga masiva");
-          
-          Swal.fire({
-              title: "Carga masiva",
-              text: "Error al realizar la carga masiva",
-              icon: "error",
-              timer: 1000,
-              showConfirmButton: false,
-            });
+          alert("No se pudo realizar la carga masiva.");
         }
   
-        //alert("Carga masiva realizada con éxito");
-        Swal.fire({
-          title: "Carga masiva",
-          text: "Carga masiva realizada con éxito",
-          icon: "success",
-          timer: 1000,
-          showConfirmButton: false,
-        });*/
-        }
+        alert("La carga masiva fue completada con exito.");
+       
       });
   }
