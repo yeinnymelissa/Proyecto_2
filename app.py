@@ -118,6 +118,11 @@ def modulomedicos():
     return render_template('modulo-medicos.html')
 
 
+@app.route('/tablas')
+def tablas():
+    return render_template('orders.html')
+
+
 @app.route('/usuario/carga-masiva', methods=['POST'])
 def cargaMasiva():
     usuariosCM = request.json["usuarios"]
