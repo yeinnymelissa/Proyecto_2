@@ -118,7 +118,7 @@ def modulomedicos():
     return render_template('modulo-medicos.html')
 
 
-@app.route('/tablas')
+@app.route('/modulo-admin/tablas')
 def tablas():
     return render_template('orders.html')
 

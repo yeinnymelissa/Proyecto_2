@@ -1,4 +1,4 @@
-const ruta = "http://localhost:4000/usuario";
+const ruta = "https://proyecto-2y.herokuapp.com/usuario";
 let plantillaHTML = "";
 
 function cargarUsuarios(posicion) {

@@ -20,7 +20,7 @@
 
 </head> 
 
-<body class="app" onload="cargarUsuarios()">   	
+<body class="app" onload="cargarUsuarios(1)">   	
     <header class="app-header fixed-top">	   	            
         <div class="app-header-inner">  
 	        <div class="container-fluid py-2">
@@ -461,6 +461,8 @@
     
     <!-- Page Specific JS -->
     <script src="{{ url_for('static', filename='assets/js/app.js')}}"></script> 
+
+	<script src="{{ url_for('static', filename='assets/js/funciones/usuario-tabla.js')}}"></script> 
 
 </body>
 </html> 

@@ -1,4 +1,4 @@
-const ruta = "http://localhost:4000/usuario/carga-masiva";
+const ruta = "https://proyecto-2y.herokuapp.com/usuario/carga-masiva";
 function cargaMasiva(puesto){
     let documento = document.getElementById('csv-enfermero').files[0];
       console.log(documento);

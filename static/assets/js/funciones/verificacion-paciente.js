@@ -1,5 +1,5 @@
-const ruta = " http://127.0.0.1:4000/usuario";
-const rutalogin = " http://127.0.0.1:4000/usuario/login";
+const ruta = " https://proyecto-2y.herokuapp.com/usuario";
+const rutalogin = "https://proyecto-2y.herokuapp.com/login";
 
 function registrarPaciente(event){
     event.preventDefault();
