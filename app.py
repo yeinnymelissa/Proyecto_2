@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from usuario import Usuario
 from CRUD_Usuario import CRUD_Usuario
+from medicina import Medicina
+from CRUD_Medicina import CRUD_Medicina
 
 usuarios = CRUD_Usuario()
 app = Flask(__name__)
@@ -31,6 +33,24 @@ def agregar_usuario():
       "contraseña": contraseña,
       "telefono": telefono,
       "puesto": puesto,
+    }
+    }), 200
+
+
+@app.route('/medicinas', methods=['PUT'])
+def agregar_medicina():
+    nombre = request.json['nombre']
+    precio = request.json['precio']
+    descripcion = request.json['descripcion']
+    cantidad = request.json['cantidad']
+  
+    id = medicina.agregar(nombre, precio, descripcion, cantidad)
+    return jsonify({"mensaje": "OK", 
+    "medicina": {
+      "nombre": nombre,
+      "precio": precio,
+      "descripcion": descripcion,
+      "cantidad": cantidad
     }
     }), 200
 
