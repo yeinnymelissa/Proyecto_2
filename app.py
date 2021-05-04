@@ -67,8 +67,6 @@ def login():
 def signup():
     return render_template('signup.html')
 
-#MODULO DE ADMINISTRACIÓN
-
 @app.route('/modulo-admin')
 def moduloadmin():
     return render_template('modulo-admin.html')
@@ -89,8 +87,6 @@ def medicos():
 def medicamentos():
     return render_template('medicamentos.html')
 
-#MODULO DE PACIENTES
-
 @app.route('/modulo-pac')
 def modulopac():
     return render_template('modulo-pacientes.html')
@@ -99,23 +95,9 @@ def modulopac():
 def solicitarcita():
     return render_template('solicitar-cita.html')
 
-
-
 @app.route('/cuenta')
 def cuenta():
     return render_template('account.html')
-
-#MODULO ENFERMEROS
-
-@app.route('/modulo-enfermeros')
-def moduloenfermeros():
-    return render_template('modulo-enfermeros.html')
-
-#MODULO MEDICOS
-    
-@app.route('/modulo-medicos')
-def modulomedicos():
-    return render_template('modulo-medicos.html')
 
 if __name__ == '__main__':
     app.run(threaded=True, debug=True, port=4000)
