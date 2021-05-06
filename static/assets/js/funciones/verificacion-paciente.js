@@ -1,5 +1,5 @@
 const ruta = " https://proyecto-2y.herokuapp.com/usuario";
-const rutalogin = "https://proyecto-2y.herokuapp.com/login";
+const rutalogin = "https://proyecto-2y.herokuapp.com/usuario/login";
 
 function registrarPaciente(event){
     event.preventDefault();
